@@ -161,6 +161,14 @@ local mappings = {
     d = { "<cmd>SessionManager delete_session<CR>", "delete" },
     l = { "<cmd>SessionManager load_session<CR>", "load" },
   },
+  n = {
+    name = "FORESTER",
+    n = { "<cmd>lua require('forester').new_tree()<cr>", "New Tree" },
+    t = { "<cmd>lua require('forester').new_from_template()<cr>", "New From Template" },
+    ['.'] = { "<cmd>lua require('forester').open_tree()<cr>", "Open Tree" },
+    h = { "<cmd>lua require('forester').transclude_new()<cr>", "Transclude New" },
+    l = { "<cmd>lua require('forester').link_new()<cr>", "Link New" }
+  },
   p = {
     name = "PANDOC",
     w = { "<cmd>TermExec cmd='pandoc %:p -o %:p:r.docx'<CR>" , "word"},

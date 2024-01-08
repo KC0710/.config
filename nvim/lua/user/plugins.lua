@@ -174,6 +174,19 @@ return packer.startup(function(use)
 -- Git
 	use { "lewis6991/gitsigns.nvim" }
 
+-- Forester
+  use { "kentookura/forester.nvim",
+        config = function()
+          local forester = require("forester")
+          vim.g.mapleader = " "
+          vim.keymap.set("n", "<leader>nn", forester.new_tree, { silent = true })
+          vim.keymap.set("n", "<leader>nt", forester.new_from_template, { silent = true })
+          vim.keymap.set("n", "<leader>n.", forester.open_tree, { silent = true })
+          vim.keymap.set("n", "<leader>nh", forester.transclude_new, { silent = true })
+          vim.keymap.set("n", "<leader>nl", forester.link_new, { silent = true })
+        end
+      }
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

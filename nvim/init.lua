@@ -12,6 +12,7 @@ require "user.comment"
 require "user.impatient"
 require "user.surround"
 require "user.yanky"
+-- vim.opt.clipboard:append('unnamedplus')
 -- require "user.undotree"
 
 -- Mappings
@@ -55,6 +56,19 @@ require "user.treesitter"
 require "user.gitsigns"
 
 
+-- Clipboard
 
+vim.g.clipboard = {
+  name = 'macOS-clipboard',
+  copy = {
+    ['+'] = 'pbcopy',
+    ['*'] = 'pbcopy',
+  },
+  paste = {
+    ['+'] = 'pbpaste',
+    ['*'] = 'pbpaste',
+  },
+  cache_enabled = 0,
+}
 
 
