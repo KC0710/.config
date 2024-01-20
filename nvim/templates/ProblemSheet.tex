@@ -1,0 +1,178 @@
+\documentclass[12pt, addpoints]{exam}
+\usepackage[utf8]{inputenc}
+%\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{tkz-fct} 
+\usepackage{thmtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{hyperref} 
+\usepackage{tikz}
+\usetikzlibrary{calc,patterns,angles,quotes}
+\usetikzlibrary{arrows}
+\tikzset{
+  arrow/.pic={\path[tips,every arrow/.try,->,>=#1] (0,0) -- +(.1pt,0);},
+  pics/arrow/.default={triangle 90}
+}
+\usepackage{pgfplots}% also loads graphicx
+\pgfplotsset{compat=1.11} %width=10cm,
+\usetikzlibrary{backgrounds}
+\usepackage{siunitx}
+\sisetup{per-mode=fraction} %,fraction-function = \nicefrac}
+\DeclareSIUnit{\gallon}{gal}
+\usepackage{fancyhdr}
+\usepackage{pst-node}
+\psset{nodesep=2pt,linearc=2pt,arrows=->,linecolor=blue,arrowinset=0}
+\def\lbl#1{\ncput*{\text{\tiny #1}}}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{lmodern}
+\usepackage{relsize}
+\newcommand{\highlight}[1]{%
+  \colorbox{red!50}{$\displaystyle#1$}}
+\usepackage{url}
+\usepackage{cancel}
+\usepackage[justification = centering, font={small,sf}]{caption}
+\usepackage{footnote}
+\usepackage{bbm}
+\usepackage{float}
+\makesavenoteenv{solution}
+\captionsetup{belowskip=0pt}
+% set the arrows as stealth fighters (personal preference)
+\tikzset{>=stealth}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
+\lstnewenvironment{rc}[1][]{\lstset{language=R}}{}
+\lstnewenvironment{py}[1][]{\lstset{language=Python}}{}
+\newcommand{\ri}[1]{\lstinline{#1}}  %% Short for 'R inline'
+
+\declaretheoremstyle[
+  spaceabove=6pt, spacebelow=6pt,
+  headfont={\color{green!40!black}\fontfamily{cmss}\selectfont\bfseries},
+  notefont=\fontfamily{cmss}\selectfont\bfseries, notebraces={(}{)},
+bodyfont=\fontfamily{cmss}\selectfont\itshape,
+  postheadspace=1em,
+  qed=\qedsymbol
+]{mystyle}
+\declaretheorem[style=mystyle]{definition}
+
+\declaretheoremstyle[
+  spaceabove=6pt, spacebelow=6pt,
+  headfont={\color{red} \fontfamily{cmss}\selectfont\bfseries},
+  notefont=\fontfamily{cmss}\selectfont\bfseries, notebraces={(}{)},
+bodyfont=\fontfamily{cmss}\selectfont,
+  postheadspace=1em,
+  qed=$\blacksquare$
+]{mystyle2}
+\declaretheorem[style=mystyle2]{remark}
+
+\declaretheoremstyle[
+  spaceabove=6pt, spacebelow=6pt,
+  headfont={\color{magenta} \fontfamily{cmss}\selectfont\bfseries},
+  notefont=\fontfamily{cmss}\selectfont\bfseries, notebraces={(}{)},
+bodyfont=\fontfamily{cmss}\selectfont,
+  postheadspace=1em,
+  qed=$\triangle$
+]{mystyle3}
+\declaretheorem[style=mystyle3]{example}
+
+\declaretheoremstyle[
+  spaceabove=6pt, spacebelow=6pt,
+  headfont={\color{green!70!black} \fontfamily{cmss}\selectfont\bfseries},
+  notefont=\fontfamily{cmss}\selectfont\bfseries, notebraces={(}{)},
+bodyfont=\fontfamily{cmss}\selectfont,
+  postheadspace=1em,
+  qed=
+]{mystyle4}
+\declaretheorem[style=mystyle4]{law}
+
+\newcommand{\class}{...}
+\newcommand{\term}{...}
+\newcommand{\examnum}{...}
+%\newcommand{\timelimit}{Maximum 60 Minutes}
+
+\pagestyle{head}
+\firstpageheader{}{}{}
+\runningheader{\class}{\examnum\ - Page \thepage\ of \numpages}{77750119}
+\runningheadrule
+
+
+\newcommand{\ebox}{\makeemptybox{\fill}}
+\newcommand{\np}{\newpage}
+\marksnotpoints
+
+\begin{document}
+
+\fontfamily{cmss}\selectfont
+\noindent
+\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} r @{\extracolsep{6pt}} l}
+\textbf{\class} & \textbf{PennID:} & \makebox[2in]{77750119}\\
+\textbf{\term} &&\\
+\textbf{\examnum} &&\\
+%\textbf{\examdate} &&\\
+%\textbf{Time Limit: \timelimit}  
+\end{tabular*}\\
+\rule[2ex]{\textwidth}{2pt}
+\fontfamily{cmss}\selectfont
+
+
+
+\subsection*{Proposed solutions}
+\newcommand{\Pro}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Corr}{\mathrm{Corr}}
+\newcommand{\SE}{\mathrm{SE}}
+\newcommand{\rd}{\mathrm{d}}
+\newcommand{\ind}{\mathbbm{1}}
+\newcommand{\diff}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+
+\printanswers
+
+\renewcommand{\solutiontitle}{\noindent\textbf{My solution:}\par\noindent}
+\SolutionEmphasis{\color{blue}}
+
+\begin{questions}
+
+
+\question
+\begin{solution}
+
+\end{solution}
+
+
+ \end{questions}
